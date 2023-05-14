@@ -3,8 +3,8 @@ import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 function Navbar() {
   return (
-    <HStack justifyContent="space-between" padding={10}>
-      <Image src={logo} boxSize={16} />
+    <HStack justifyContent="space-between" padding="10px">
+      <Image src={logo} boxSize="64px" />
       <ColorModeSwitch />
     </HStack>
   );
