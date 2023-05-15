@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Game from "../models/game";
+import Game from "../models/game/game";
 import apiClient from "../services/api-client";
-import FetchGamesResponse from "../models/fetchGamesResponse";
+import FetchGamesResponse from "../models/game/fetchGamesResponse";
 import { CanceledError } from "axios";
 
 const useGames = () => {
