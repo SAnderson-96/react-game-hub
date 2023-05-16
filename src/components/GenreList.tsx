@@ -12,9 +12,10 @@ import Genre from "../models/genre/genre";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-function GenreList({ onSelectGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenre }: Props) {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -23,7 +24,12 @@ function GenreList({ onSelectGenre }: Props) {
     <List>
       {data.map((genre) => (
         <ListItem key={genre.id} paddingY="4px">
-          <HStack>
+          <HStack
+            backgroundColor={
+              genre.id === selectedGenre?.id ? "gray.600" : "gray.800"
+            }
+            borderRadius={8}
+          >
             <Image
               boxSize="32px"
               borderRadius={8}
@@ -33,6 +39,7 @@ function GenreList({ onSelectGenre }: Props) {
               onClick={() => onSelectGenre(genre)}
               fontSize="lg"
               variant="link"
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
             >
               {genre.name}
             </Button>
