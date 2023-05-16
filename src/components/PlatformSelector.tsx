@@ -11,23 +11,21 @@ function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
 
   if (error) return null;
   return (
-    <div className="m-3">
-      <Menu>
-        <MenuButton as={Button} rightIcon={<BsChevronBarDown />}>
-          {selectedPlatform?.name || "Platforms"}
-        </MenuButton>
-        <MenuList>
-          {data.map((platform) => (
-            <MenuItem
-              key={platform.id}
-              onClick={() => onSelectPlatform(platform)}
-            >
-              {platform.name}
-            </MenuItem>
-          ))}
-        </MenuList>
-      </Menu>
-    </div>
+    <Menu>
+      <MenuButton as={Button} rightIcon={<BsChevronBarDown />}>
+        {selectedPlatform?.name || "Platforms"}
+      </MenuButton>
+      <MenuList>
+        {data.map((platform) => (
+          <MenuItem
+            key={platform.id}
+            onClick={() => onSelectPlatform(platform)}
+          >
+            {platform.name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
   );
 }
 

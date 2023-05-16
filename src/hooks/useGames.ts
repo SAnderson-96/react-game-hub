@@ -1,5 +1,4 @@
 import Game from "../models/game/game";
-import Platform from "../models/game/platform";
 import GameQuery from "../models/gameQuery";
 import useData from "./useData";
 
@@ -10,6 +9,7 @@ const useGames = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.genre?.id,
         parent_platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
       },
     },
     [gameQuery]
